@@ -596,6 +596,11 @@ function isSortableTemplateExpression(
     }
   }
 
+  // Support call expression of the form tw(Component)`px-2`.
+  if (node.tag.type === "CallExpression" && node.tag.callee.type === "Identifier") {
+    return functions.has(node.tag.callee.name)
+  }
+
   return false
 }
 
@@ -732,6 +737,11 @@ function transformJavaScript(
           end: concat?.key !== 'left',
         },
       })
+
+      // Sort within templated expressions.
+      for (const expression of node.quasi.expressions) {
+        sortInside(expression);
+      }
     },
   })
 }
