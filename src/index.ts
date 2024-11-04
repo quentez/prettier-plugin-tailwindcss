@@ -719,6 +719,11 @@ function transformJavaScript(ast: import('@babel/types').Node, { env }: Transfor
         env,
         collapseWhitespace,
       })
+
+      // Sort within templated expressions.
+      for (const expression of node.quasi.expressions) {
+        sortInside(expression);
+      }
     },
   })
 }

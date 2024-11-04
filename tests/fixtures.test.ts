@@ -103,6 +103,11 @@ let fixtures = [
     dir: 'monorepo/package-2',
     ext: 'jsx',
   },
+  {
+    name: 'monorepo / tiwi',
+    dir: 'monorepo/package-3',
+    ext: 'jsx',
+  },
 ]
 
 let configs = [

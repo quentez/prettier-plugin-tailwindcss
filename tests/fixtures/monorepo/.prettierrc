@@ -1,5 +1,7 @@
 {
-  "tailwindFunctions": ["tw"],
+  "tailwindFunctions": [
+    "tw"
+  ],
   "overrides": [
     {
       "files": "package-1/**",
@@ -10,6 +12,16 @@
     {
       "files": "package-2/**",
       "options": {}
+    },
+    {
+      "files": "package-3/**",
+      "options": {
+        "tailwindFunctions": [
+          "tiwi"
+        ],
+        "tailwindStylesheet": "./package-3/app.css",
+        "tailwindPreserveWhitespace": true
+      }
     }
   ]
 }
